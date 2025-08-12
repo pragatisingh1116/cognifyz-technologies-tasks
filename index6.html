@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Form</title>
+    <style>
+        body {
+            font-family: Arial;
+            padding: 20px;
+        }
+        form {
+            max-width: 300px;
+            margin: auto;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        input {
+            width: 100%;
+            margin: 10px 0;
+            padding: 8px;
+        }
+        button {
+            padding: 10px;
+            width: 100%;
+            background-color: green;
+            color: white;
+            border: none;
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>User Form</h2>
+  <form id="myForm">
+    <input type="text" id="name" placeholder="Your good name"><br><br>
+    <input type="email" id="email" placeholder="Enter your email"><br><br>
+    <button type="submit">Submit</button>
+    <div id="errorMsg" class="error"></div>
+
+  </form>
+
+  <script>
+    document.getElementById("myForm").addEventListener("sumit", function(e) { e.preventDefault();
+        var name = documentElementById("name").value.trime();
+        var email = documentElementById("email").value.trime();
+        var errorMsg = documentElementById("errorMsg");
+        if (name === "" || email === "") {
+        errorMsg.textContent = "Please fill in all fields.";
+      } else if (!email.includes("@")) {
+        errorMsg.textContent = "Please enter a valid email.";
+      } else {
+        errorMsg.textContent = "";
+        alert("Form submitted successfully!");
+        document.getElementById("myForm").reset();
+      }
+    });
+
+
+    
+  </script>
+    
+</body>
+</html>
